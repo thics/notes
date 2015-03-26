@@ -21,12 +21,19 @@ public class Queue<E> {
       front = back;
       return;
     }
+
     LNode<E> n = new LNode(data);
     back.setNext(n);
     back = back.getNext();
   }
 
-  public E dequeue() {
+  public E dequeue() throws NoSuchElementException {
+    if(isEmpty())
+      throw new NoSuchElementException("Queue empty!");
+
+    if(front == back)
+      back = null;
+
     LNode<E> n = front;
     front = front.getNext(); //Deletes front
     return n.getData();
@@ -50,5 +57,9 @@ public class Queue<E> {
     for(int i = 0; i < 5; i++)
       q.dequeue();
     System.out.println(q);
+
+    /*    for(int i = 0; i < 100; i++)
+      q.dequeue(); //Should throw exception
+    */
   }
 }
