@@ -7,9 +7,6 @@
   The class also contains variables to keep track
   of the number of swaps and comparisons performed
   for a given sort.
-
-  Complete bubble(), selection() and insertion()
-  jdyrlandweaver
   =========================*/
 
 import java.io.*;
@@ -68,20 +65,7 @@ public class Sort {
         return false;
     return true;
   }
-
-  /*======== public void swap() ==========
-    Inputs:  int a
-    int b  
-    Returns: 
-      
-    Swaps the values at postitons a and b in list
-    ====================*/    
-  public static void swap(int a, int b, int[] list) {
-    int c = list[a];
-    list[a] = list[b];
-    list[b] = c;
-  }
-
+ 
   public static void insertionSort(int[] a) {
     int t, pos;
     for (int i=1; i < a.length; i++) {
@@ -104,86 +88,139 @@ public class Sort {
               
     This method must run in linear time.      
     ====================*/
-  public static int[] merge( int[] a, int[] b )  { //Sorts between two sorted lists
-    int[] sorted = new int[a.length + b.length];
-    int indA = 0; 
-    int indB = 0;
-    int indS = 0;
-    while(indS < sorted.length) {
+  public static int[] merge( int[] a, int[] b )  {
 
-      if(indA >= a.length) { // If A is done
-        for(int i = indB; i < b.length; i++) {
-          sorted[indS] = b[i];
-          indS++;
-        }
-        break;
-      }
-      if(indB >= b.length) { // If B is done
-        for(int i = indA; i < a.length; i++) {
-          sorted[indS] = a[i];
-          indS++;
-        }
-        break;
-      }
+    int[] sorted = new int[ a.length + b.length ];
+    int acount = 0;
+    int bcount = 0;
+    int scount = 0;
 
-      if(a[indA] <= b[indB]) {
-        sorted[indS] = a[indA];
-        indA++;
-        indS++;
-      }
-      else {
-        sorted[indS] = b[indB];
-        indB++;
-        indS++;
-      }
+    while ( acount < a.length && bcount < b.length ) {
+
+	    if ( a[acount] < b[bcount] ) {
+        sorted[scount] = a[acount];
+        acount++;
+	    }
+	    else {
+        sorted[scount] = b[bcount];
+        bcount++;
+	    }
+	    scount++;	    
     }
+
+    while ( acount < a.length ) {
+	    sorted[scount] = a[acount];
+	    scount++;
+	    acount++;
+    }
+
+    while ( bcount < b.length ) {
+	    sorted[scount] = b[bcount];
+	    scount++;
+	    bcount++;
+    }	    	
     return sorted;
   }
 
   public static int[] mergeSort( int[] list ) {
-    int[] front = new int[list.length / 2];
-    int[] back = new int[list.length - front.length];
 
-    if(list.length <= 1)
-      return list;
+    if ( list.length == 1 )
+	    return list;
 
-    if(list.length >= 2) {
-      //Split
-      for(int i = 0; i < front.length; i++) //Split list
-        front[i] = list[i];
+    else {
+	    int mid = list.length / 2;
+	    int[] a = new int [ mid ];
+	    int[] b = new int [ list.length - mid ];
+	    int i = 0;
+	    for (; i < a.length; i++ )
+        a[i] = list[i];
+	    for (int j=0; j < b.length; j++)
+        b[j] = list[ i + j ];
+
+	    return merge( mergeSort(a), mergeSort(b) );
+    }
+  }
+    
+
+
+  /*======== public void swap() ==========
+    Inputs:  int a
+    int b  
+    Returns: 
       
-      for(int j = 0; j < back.length; j++)
-        back[j] = list[j + front.length];
+    Swaps the values at postitons a and b in list
+    ====================*/    
+  public static void swap(int a, int b, int[] list) {
+    int c = list[a];
+    list[a] = list[b];
+    list[b] = c;
+  }
+    
+  /*======== public static int partition() ==========
+    Inputs:  int[] a
+    int start
+    int end
+    Returns: The index that marks the end of the first partition
+      
+    This method should select a pivot value, then split the
+    array such that each element in the left side of the array
+    is less than the pivot and every element in the right side 
+    of the array is greater than or equal to the pivot.
 
-      //Keep splitting if not sorted
-      front = mergeSort(front);      
-      back = mergeSort(back);
+    The return value should represent the last index of the
+    left (smaller) side of the array
+              
+    This method must run in linear time.      
+    ====================*/
+  public static int partition(int[] a, int start, int end) {
+    int pivot = a[0];
+    while(start != end && start < a.length && end >= 0 ) {
+      if(a[start] >= pivot && a[end] < pivot) {
+        int s = a[start];
+        a[start] = a[end];
+        a[end] = s;
+      }
+      if(a[start] < pivot)
+        start++;
+      if(a[end] >= pivot)
+        end--;
     }
     
-    list = merge(front, back);
-    return list;
+    //Confirm return index is correct (Why?)
+    if(start >= a.length || a[start] < pivot)
+      return start;
+    else 
+      return start - 1;
   }
-
+    
   public static void main(String[] args) {
 
-    int[] a1 = new int[10];
-    int[] a2 = new int[10];
-    int[] a3 = new int[10];
+    //Testing mergeSort
+    /*  
+        int[] a1 = new int[10];
+        int[] a2 = new int[10];
+        
+        populate(a1);
+        populate(a2);
+        insertionSort(a1);
+      insertionSort(a2);
+      System.out.println( show(a1) );
+      System.out.println( show(a2) );
 
-    populate(a1);
-    populate(a2);
-    insertionSort(a1);
-    insertionSort(a2);
-    //    System.out.println( show(a1) );
-    //    System.out.println( show(a2) );
-    
-    int[] merged = merge( a1, a2 );
-    //    System.out.println( show( merged ) );
-	
+      int[] merged = merge( a1, a2 );
+      System.out.println( show( merged ) );
+
+      int[] list = new int[10];
+      populate(list);
+      System.out.println( show( list ) );
+      list = mergeSort(list);
+      System.out.println( show( list ) );
+*/
+
+    int[] a3 = new int[10];
     populate(a3);
     System.out.println(show(a3));
-
-    System.out.println( show(mergeSort(a3)));
-    
+    System.out.println(partition(a3, 0, a3.length - 1));
+    System.out.println(show(a3));
   }
 }
