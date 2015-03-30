@@ -174,23 +174,19 @@ public class Sort {
     ====================*/
   public static int partition(int[] a, int start, int end) {
     int pivot = a[0];
-    while(start != end && start < a.length && end >= 0 ) {
-      if(a[start] >= pivot && a[end] < pivot) {
-        int s = a[start];
-        a[start] = a[end];
-        a[end] = s;
-      }
-      if(a[start] < pivot)
+    while (start < end) { //Will never exceed end! :O Because it's already gonna be sorted!
+      while (a[start] < pivot)
         start++;
-      if(a[end] >= pivot)
+      while (a[end] > pivot)
         end--;
+
+      if(start < end) { //If they're equal, don't swap, to return last element of first
+        swap( start, end, a);
+        start++;
+        end--;
+      }
     }
-    
-    //Confirm return index is correct (Why?)
-    if(start >= a.length || a[start] < pivot)
-      return start;
-    else 
-      return start - 1;
+    return end; //One less than intermediate point == last element of first partition
   }
     
   public static void main(String[] args) {
@@ -203,22 +199,23 @@ public class Sort {
         populate(a1);
         populate(a2);
         insertionSort(a1);
-      insertionSort(a2);
-      System.out.println( show(a1) );
-      System.out.println( show(a2) );
+        insertionSort(a2);
+        System.out.println( show(a1) );
+        System.out.println( show(a2) );
 
-      int[] merged = merge( a1, a2 );
-      System.out.println( show( merged ) );
+        int[] merged = merge( a1, a2 );
+        System.out.println( show( merged ) );
 
-      int[] list = new int[10];
-      populate(list);
-      System.out.println( show( list ) );
-      list = mergeSort(list);
-      System.out.println( show( list ) );
-*/
+        int[] list = new int[10];
+        populate(list);
+        System.out.println( show( list ) );
+        list = mergeSort(list);
+        System.out.println( show( list ) );
+    */
 
     int[] a3 = new int[10];
     populate(a3);
+
     System.out.println(show(a3));
     System.out.println(partition(a3, 0, a3.length - 1));
     System.out.println(show(a3));
