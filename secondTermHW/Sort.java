@@ -1,4 +1,3 @@
-
 /*========== Sort.java ==========
 
   Class used to test various sorting algorithms.
@@ -174,29 +173,28 @@ public class Sort {
     This method must run in linear time.      
     ====================*/
   public static int partition(int[] a, int start, int end) {
-    int pivot = a[0];
-    while (start < end) { //Will never exceed end! :O Because it's already gonna be sorted!
+    int pivot = a[(start + end) / 2];
+    while (start <= end) { //Will never exceed end! :O Because it's already gonna be sorted!
       while (a[start] < pivot)
         start++;
       while (a[end] > pivot)
         end--;
 
-      if(start < end) { //If they're equal, don't swap, to return last element of first
+      if(start <= end) {
         swap( start, end, a);
         start++;
         end--;
       }
     }
-    return end; //One less than intermediate point == last element of first partition
+    return start; //One less than intermediate point == last element of first partition
   }
 
   public static void quickSort( int[] list, int start, int end ) {
-    if(!isSorted(list)) {
-      int s = partition(list, start, end);
-    
-      quickSort(list, 0, s);
-      quickSort(list, s, list.length - 1);
-    }
+    int index = partition(list, start, end); //Last index of first partition
+    if(start < index - 1) //First half
+      quickSort(list, start, index - 1);
+    if(index < end) //Second half
+      quickSort(list, index, end);
   }
     
   public static void main(String[] args) {
