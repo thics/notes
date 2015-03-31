@@ -1,3 +1,4 @@
+
 /*========== Sort.java ==========
 
   Class used to test various sorting algorithms.
@@ -188,6 +189,15 @@ public class Sort {
     }
     return end; //One less than intermediate point == last element of first partition
   }
+
+  public static void quickSort( int[] list, int start, int end ) {
+    if(!isSorted(list)) {
+      int s = partition(list, start, end);
+    
+      quickSort(list, 0, s);
+      quickSort(list, s, list.length - 1);
+    }
+  }
     
   public static void main(String[] args) {
 
@@ -217,7 +227,9 @@ public class Sort {
     populate(a3);
 
     System.out.println(show(a3));
-    System.out.println(partition(a3, 0, a3.length - 1));
+    //    System.out.println(partition(a3, 0, a3.length - 1));
+    quickSort(a3, 0, a3.length - 1);
     System.out.println(show(a3));
+
   }
 }
