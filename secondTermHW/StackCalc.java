@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+
 public class StackCalc {
 
   public static boolean isOperator( char c  ) {
@@ -60,7 +63,26 @@ public class StackCalc {
   public static double calculate( String postfix ) {
 
     LStack<Double> values = new LStack<Double>();
+    char[] c = postfix.toCharArray();
+    int i = 0;
 
+    while(i < c.length) {
+      if(!isOperator(c[i]))
+        values.push((double)(Character.getNumericValue(c[i])));
+      else {
+        double second = values.pop();
+        double first = values.pop();
+        if(c[i] == '+')
+          values.push(first + second);
+        else if(c[i] == '-')
+          values.push(first - second);
+        else if(c[i] == '*')
+          values.push(first*second);
+        else if(c[i] == '/')
+          values.push(first/second);
+      }
+      i++;
+    }
     return values.pop();
   }
 
@@ -71,7 +93,7 @@ public class StackCalc {
 
     System.out.println( p );
 	
-    //    System.out.println( calculate(p) );
+    System.out.println( calculate(p) );
   }
 
 }
