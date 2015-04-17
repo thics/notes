@@ -53,10 +53,10 @@ public class BTree<E> {
       curr.setLeft(bn);
     else if(curr.getRight() == null)
       curr.setRight(bn);
-    else if(Math.random() % 2 == 0)
-      curr.getLeft().setLeft(bn);
+    else if(Math.random() <= .5)
+      add( curr.getLeft(), bn);
     else
-      curr.getRight().setRight(bn);
+      add( curr.getRight(), bn);
   }
     
   public void traverse( int mode) {
@@ -78,17 +78,11 @@ public class BTree<E> {
   public void preOrder( TreeNode<E> curr ) {
     if(curr == null)
       return;
-    System.out.print(curr.getData()); //Center Node
-    //Left
-    if(curr.getLeft() != null) {
-      System.out.print(curr.getLeft().getData());
-      preOrder(curr.getLeft());
-    }
-    //Right
-    if(curr.getRight() != null) {
-      System.out.print(curr.getRight().getData());
-      preOrder(curr.getRight());
-    }
+
+    System.out.print(curr + " "); //Center Node   
+    preOrder(curr.getLeft());
+    preOrder(curr.getRight());
+
   }
 
 
@@ -102,17 +96,11 @@ public class BTree<E> {
   public void inOrder( TreeNode<E> curr ) {
     if(curr == null)
       return;
-    //Left
-    if(curr.getLeft() != null) {
-      System.out.print(curr.getLeft().getData());
-      preOrder(curr.getLeft());
-    }
-    System.out.print(curr.getData()); //Center Node
-    //Right
-    if(curr.getRight() != null) {
-      System.out.print(curr.getRight().getData());
-      preOrder(curr.getRight());
-    }
+
+    preOrder(curr.getLeft());
+    System.out.print(curr + " "); //Center Node
+    preOrder(curr.getRight());
+
   }
 
   /*======== public void postOrder() ==========
@@ -128,19 +116,68 @@ public class BTree<E> {
   public void postOrder( TreeNode<E> curr ) {
     if(curr == null)
       return;
-    //Left
-    if(curr.getLeft() != null) {
-      System.out.print(curr.getLeft().getData());
-      preOrder(curr.getLeft());
-    }
-    //Right
-    if(curr.getRight() != null) {
-      System.out.print(curr.getRight().getData());
-      preOrder(curr.getRight());
-    }
-    System.out.print(curr.getData()); //Center Node
+
+    preOrder(curr.getLeft());
+    preOrder(curr.getRight());
+    System.out.print(curr + " "); //Center Node
   }
     
+
+  /*======== public int getHeight()) ==========
+      Inputs:   
+      Returns: The height of the tree
+
+      Wrapper for the recursive getHeight method
+      ====================*/
+  public int getHeight() {
+    return getHeight( root );
+  }
+  /*======== public int getHeight() ==========
+      Inputs:   TreeNode<E> curr  
+      Returns:  The height of the tree rooted at node curr
+      
+      ====================*/
+  public int getHeight( TreeNode<E> curr ) {
+    return -1;
+  }
+
+  /*======== public String getLevel() ==========
+      Inputs:   TreeNode<E> curr
+                int level
+                int currLevel  
+      Returns: A string containing all the elements on the
+               given level, ordered left -> right
+      
+               ====================*/
+  public String getLevel( TreeNode<E> curr, int level, int currLevel ) {
+    return "";
+  }
+    
+  /*======== public String toString()) ==========
+      Inputs:   
+      Returns: A string representation of the tree
+     
+      This string should display each level as a separate line.
+      A simple version might look something like this:
+
+      0
+      1 2
+      3 4 5
+
+      Note that you cannot tell exactly where 3, 4 and 5 lie.
+      That is ok, but if you want a challenge, you can try to
+      get the output to look nicer, something like this:
+
+           0
+        1     2
+         3   4 5
+
+      04/05/12 09:13:06
+      jdyrlandweaver
+      ====================*/
+  public String toString() {
+    return "";
+  }
 	
   public static void main( String[] args ) {
 
