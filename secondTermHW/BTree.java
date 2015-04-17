@@ -56,7 +56,7 @@ public class BTree<E> {
     else if(Math.random() % 2 == 0)
       curr.getLeft().setLeft(bn);
     else
-      curr.getright().setRight(bn);
+      curr.getRight().setRight(bn);
   }
     
   public void traverse( int mode) {
@@ -82,12 +82,12 @@ public class BTree<E> {
     //Left
     if(curr.getLeft() != null) {
       System.out.print(curr.getLeft().getData());
-      preOrder(curr.getLeft().getData());
+      preOrder(curr.getLeft());
     }
     //Right
     if(curr.getRight() != null) {
       System.out.print(curr.getRight().getData());
-      preOrder(curr.getRight().getData());
+      preOrder(curr.getRight());
     }
   }
 
@@ -105,13 +105,13 @@ public class BTree<E> {
     //Left
     if(curr.getLeft() != null) {
       System.out.print(curr.getLeft().getData());
-      preOrder(curr.getLeft().getData());
+      preOrder(curr.getLeft());
     }
     System.out.print(curr.getData()); //Center Node
     //Right
     if(curr.getRight() != null) {
       System.out.print(curr.getRight().getData());
-      preOrder(curr.getRight().getData());
+      preOrder(curr.getRight());
     }
   }
 
@@ -131,12 +131,12 @@ public class BTree<E> {
     //Left
     if(curr.getLeft() != null) {
       System.out.print(curr.getLeft().getData());
-      preOrder(curr.getLeft().getData());
+      preOrder(curr.getLeft());
     }
     //Right
     if(curr.getRight() != null) {
       System.out.print(curr.getRight().getData());
-      preOrder(curr.getRight().getData());
+      preOrder(curr.getRight());
     }
     System.out.print(curr.getData()); //Center Node
   }
