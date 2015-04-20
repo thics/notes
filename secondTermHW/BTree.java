@@ -138,7 +138,13 @@ public class BTree<E> {
       
       ====================*/
   public int getHeight( TreeNode<E> curr ) {
-    return -1;
+    if(curr == null)
+    	return 0;
+    boolean b = getHeight( curr.getLeft() + 1 >= getHeight( curr.getRight()) + 1;
+    if(b)
+        return getHeight( curr.getLeft()) + 1;
+        
+    return getHeight( curr.getRight()) + 1;
   }
 
   /*======== public String getLevel() ==========
@@ -150,7 +156,14 @@ public class BTree<E> {
       
                ====================*/
   public String getLevel( TreeNode<E> curr, int level, int currLevel ) {
-    return "";
+    if(level == currLevel)
+      return curr.getData() + " ";
+    else {
+      String s;
+      s += getLevel( curr.getLeft(), level, currLevel + 1 );
+      s += getLevel( curr.getRight(), level, currLevel + 1);
+      return s;
+    }
   }
     
   /*======== public String toString()) ==========
@@ -176,7 +189,13 @@ public class BTree<E> {
       jdyrlandweaver
       ====================*/
   public String toString() {
-    return "";
+  	String s = "";
+  	int i = 0;
+  	while( i < getHeight()) {
+  		s += getLevel(root, i, 0);
+  		i++;
+  	}
+    return s;
   }
 	
   public static void main( String[] args ) {
