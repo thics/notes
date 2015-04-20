@@ -124,42 +124,44 @@ public class BTree<E> {
     
 
   /*======== public int getHeight()) ==========
-      Inputs:   
-      Returns: The height of the tree
+    Inputs:   
+    Returns: The height of the tree
 
-      Wrapper for the recursive getHeight method
-      ====================*/
+    Wrapper for the recursive getHeight method
+    ====================*/
   public int getHeight() {
     return getHeight( root );
   }
   /*======== public int getHeight() ==========
-      Inputs:   TreeNode<E> curr  
-      Returns:  The height of the tree rooted at node curr
+    Inputs:   TreeNode<E> curr  
+    Returns:  The height of the tree rooted at node curr
       
-      ====================*/
+    ====================*/
   public int getHeight( TreeNode<E> curr ) {
     if(curr == null)
     	return 0;
-    boolean b = getHeight( curr.getLeft() + 1 >= getHeight( curr.getRight()) + 1;
-    if(b)
-        return getHeight( curr.getLeft()) + 1;
+
+    if (getHeight( curr.getLeft()) + 1 >= getHeight( curr.getRight()) + 1)
+      return getHeight( curr.getLeft()) + 1;
         
     return getHeight( curr.getRight()) + 1;
   }
 
   /*======== public String getLevel() ==========
-      Inputs:   TreeNode<E> curr
-                int level
-                int currLevel  
-      Returns: A string containing all the elements on the
-               given level, ordered left -> right
+    Inputs:   TreeNode<E> curr
+    int level
+    int currLevel  
+    Returns: A string containing all the elements on the
+    given level, ordered left -> right
       
-               ====================*/
+    ====================*/
   public String getLevel( TreeNode<E> curr, int level, int currLevel ) {
+    String s = "";
+    if(level > currLevel)
+      return "";
     if(level == currLevel)
       return curr.getData() + " ";
     else {
-      String s;
       s += getLevel( curr.getLeft(), level, currLevel + 1 );
       s += getLevel( curr.getRight(), level, currLevel + 1);
       return s;
@@ -167,34 +169,33 @@ public class BTree<E> {
   }
     
   /*======== public String toString()) ==========
-      Inputs:   
-      Returns: A string representation of the tree
+    Inputs:   
+    Returns: A string representation of the tree
      
-      This string should display each level as a separate line.
-      A simple version might look something like this:
+    This string should display each level as a separate line.
+    A simple version might look something like this:
 
-      0
-      1 2
-      3 4 5
+    0
+    1 2
+    3 4 5
 
-      Note that you cannot tell exactly where 3, 4 and 5 lie.
-      That is ok, but if you want a challenge, you can try to
-      get the output to look nicer, something like this:
+    Note that you cannot tell exactly where 3, 4 and 5 lie.
+    That is ok, but if you want a challenge, you can try to
+    get the output to look nicer, something like this:
 
-           0
-        1     2
-         3   4 5
+    0
+    1     2
+    3   4 5
 
-      04/05/12 09:13:06
-      jdyrlandweaver
-      ====================*/
+    04/05/12 09:13:06
+    jdyrlandweaver
+    ====================*/
   public String toString() {
-  	String s = "";
-  	int i = 0;
-  	while( i < getHeight()) {
-  		s += getLevel(root, i, 0);
-  		i++;
-  	}
+    String s = "";
+
+    for(int i = 0; i < getHeight(); i++)
+      s += getLevel(root, i, 0) + "\n";
+
     return s;
   }
 	
@@ -203,13 +204,16 @@ public class BTree<E> {
     BTree<Integer> t = new BTree<Integer>();
 
     for ( int i=0; i < 8; i++ ) 
-	    t.add( i );
+      t.add( i );
     System.out.println( "Pre-order: ");
     t.traverse( PRE_ORDER );
     System.out.println( "In-order: ");
     t.traverse( IN_ORDER );
     System.out.println( "Post-order: ");
     t.traverse( POST_ORDER );
+
+    System.out.println("Height: " + t.getHeight());
+    System.out.println(t);
 
   }
 }
