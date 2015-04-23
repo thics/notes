@@ -34,19 +34,17 @@ public class BSTree <T extends Comparable> {
     Add t to the correct place in the tree rooted at curr.
     ====================*/
   public BSTreeNode<T> add(BSTreeNode<T> curr, BSTreeNode<T> t) {
-    BSTreeNode<T> b = curr;
-    
-    if(curr == null) {
-      curr = t;
-      return b;
-    }
+    //If root is null, we simply add the root to be t
+
+    if(curr == null)
+      return t;
 
     if(t.getData().compareTo(curr.getData()) < 0)
-      add(curr.getLeft(), t);
+      curr.setRight(add(curr.getLeft(), t));
     else
-      add(curr.getRight(), t);
+      curr.setLeft(add(curr.getRight(), t));
 
-    return b;
+    return curr; //Either we return t at the end, or return the current and rebuild tree**
   }
 
   /*======== public void remove() ==========
@@ -68,34 +66,37 @@ public class BSTree <T extends Comparable> {
     curr, if it exists.
     ====================*/
   public BSTreeNode<T> remove( BSTreeNode<T> curr, T c ) {
-    BSTreeNode<T> b = curr;
     if(curr == null)
       return curr;
+ 
+    //Picks a side to find c (Excludes if the node is c)**
+    if( curr.getData().compareTo( c ) > 0) {
+      curr.setLeft( remove( curr.getLeft(), c ));
+      return curr;
+    }
     
-    if(curr.getData() == c) {
-      if(curr.getLeft() == null || curr.getRight() == null) //If leaf
-        curr = null;
-      else {
-        BSTreeNode<T> temp;
+    if(curr.getData().compareTo( c ) < 0 ) {
+      curr.setRight( remove( curr.getRight(), c ) );
+      return curr;
+    }
 
-        if(curr.getLeft() != null) { //If left is null, go to right
-          temp = curr.getLeft();
-          while(temp.getRight() != null) //Finds largest value on left side
-            temp = temp.getRight();
-        }
-        else {
-          temp = curr.getRight();
-          while(temp.getLeft() != null) //Finds smallest value on right side
-            temp = temp.getLeft();
-        }
-        curr = temp; //Replaces 
-      } 
+    else { //If either leaf or equal to c
+      if( isLeaf( curr )) //If leaf
+        return null;
+      if ( curr.getLeft() == null )
+        return curr.getRight();
+      else {
+        //find the correct replacement value
+        //right-most node in the left subtree
+        BSTreeNode<T> seeker = curr.getLeft();
+        while( seeker.getRight() != null)
+          seeker = seeker.getRight();
+
+        curr.setData( seeker.getData() );
+        curr.setLeft( remove( curr.getLeft(), seeker.getData() ));
+        return curr;
+      }
     }
-    else {
-      remove(curr.getLeft(), c);
-      remove(curr.getRight(), c);
-    }
-    return b;
   }
 
 
