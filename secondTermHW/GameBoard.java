@@ -18,13 +18,15 @@ public class GameBoard {
   private void populate(TreeNode curr, int numLevels, int currLevel) {
     Random r = new Random();
     if(currLevel != numLevels) {
+      if(root == null)
+        root = new TreeNode(r.nextInt(10));     
       if(curr == null)
         curr = new TreeNode(r.nextInt(10));
 
       if(curr != null) {
         curr.setLeft(new TreeNode(r.nextInt(10)));
         curr.setRight(new TreeNode(r.nextInt(10)));
-        System.out.println(curr);
+        //        System.out.println(curr);
         populate(curr.getLeft(), numLevels, currLevel + 1);
         populate(curr.getRight(), numLevels, currLevel + 1);
       }
