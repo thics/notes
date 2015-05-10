@@ -8,6 +8,8 @@ public class TreeNode {
   public TreeNode(char d) {
     data = d;
     children = new TreeNode[27]; //One for each letter, 27 for end of word '-'
+    for(int i : children)
+      i = new TreeNode('');
   }
 
   public String toString() {
