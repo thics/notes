@@ -12,4 +12,6 @@ void draw() {
 
 }
 
-void 
+int compPixel( int x, int y ) { //Returns comparison value, lower = closer
+
+}
