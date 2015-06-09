@@ -1,5 +1,6 @@
 float X_SIZE = 500;
 float Y_SIZE = 500;
+PImage original;
 
 //Get image to size of window and we can compare image pixel by pixel
 
