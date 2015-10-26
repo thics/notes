@@ -132,3 +132,17 @@ bitwise operators
 	 fd ==> often, if not always, returned by open(<file_name>);
 
 **BUFFER is generally the place you want to store the value/stored the value you're using
+
+----------------------------
+SOTD: Crazy - Gnarls Barkley
+
+Aim: Seek and ye shall find
+
+umask - <sys/stat.h>
+
+      Set the file creation permission mask
+
+      By default, created files are not given the exact permissions provided
+      in the mode argument to open.
+
+      A mask is applied that automatically shuts off certain permissions.
