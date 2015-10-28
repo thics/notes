@@ -30,4 +30,5 @@ stat - <sys/stat.h>
 	       st_mode
 		       file permissions
 
-
+	       st_atime, st_mtime
+	       	       last access, last modification 
