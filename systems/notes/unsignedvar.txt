@@ -1,4 +1,4 @@
-Aim: Always read the fine print.
+IAim: Always read the fine print.
 
 Do Now: Open up your editor of choice (emacs), write a basic "Hello World" program in java.
 
