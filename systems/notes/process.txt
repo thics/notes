@@ -1,0 +1,37 @@
+SOTD: Shine - Collective Soul
+
+Aim: Are your processes running? - Then you should go out and catch them!
+
+Do Now: Run the command ps in a terminal. What do you see?
+
+Processes
+	Every running program is a process. A proess can
+	create subprocesses, but these are no different from
+	regular processes.
+
+	A procesor can handle 1 process per cycle (per core).
+	"Multitasking" appears toh appen because the processor
+	switches between all the activate processes quickly.
+
+	pid
+		Every process has a unique identifier called the pid.
+
+		pid 1 is the init process
+
+		Each entry in the /proc directory is a current pid
+
+	getpid() - <unistd.h>
+		 returns the current process' pid
+
+	getppid() - <unistd.h>
+		returns the current process' parent pid
+
+	fork() - <unistd.h>
+	       	Creates a separate process based on the current one,
+		the new process is called the child, the original is
+		the parent.
+
+		The child process is a duplicate of the parent process.
+		All parts of the parent process are copied,
+		including stack and heap memory, and the file table.
+		
