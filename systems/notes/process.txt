@@ -34,4 +34,22 @@ Processes
 		The child process is a duplicate of the parent process.
 		All parts of the parent process are copied,
 		including stack and heap memory, and the file table.
-		
+
+			  A quick note on threads: A thread is a separate
+			  executable entity similar to a child process,
+			  except a thread is not a standalone process.
+			  It does not have its own memory space, instead
+			  it shares its parent's memory.
+
+		Returns 0 to the child and the child's pid to the parent or -1 (errno).x
+
+	sleep( <Number of seconds> ) - <unistd.h>
+
+	       C will wait for number of seconds
+
+	wait - <unistd.h>
+
+		Stops a parent process from running until any child has provided status
+		information to the parent (usually the child has exited).
+
+		Returns the pid of the child that exited, or -1 (errno)
