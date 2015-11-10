@@ -56,3 +56,21 @@ Processes
 
 Aim: Time to bring out the exectioner.
 
+     exit - stops the main code during runtime
+
+SOTD: Burden in my Hand - Soundgarden
+
+Aim: Invasion of the process snatchers.
+
+     waitpid - <unistd.h>
+
+     	     Waits for a specific child
+
+	     waitpid(pid, status, options)
+	     	pid
+		      The pid of the specific child to look for
+		      If -1, will wait for any child
+
+		options
+		      Can s et other behavior for wait, if 0, will
+		      work normally.
