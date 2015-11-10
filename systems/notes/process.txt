@@ -83,6 +83,8 @@ The exec family - <unistd.h>
     Replaces the current process with the new program, any
     code after a call to an exec function will be ignored.
 
+    **WILL END current program!
+
     execl
 	execl( <PATH>, <COMMAND>, <ARGS>, NULL)
 
@@ -95,3 +97,25 @@ The exec family - <unistd.h>
 	ARGS
 		Each command line argument you wish to give
 		the program. (ex "-a", "-l")
+
+    execlp
+	execlp( <PATH>, <COMMAND>, <ARGS>, NULL )
+
+	Works like execl, except it uses the PATH
+	environment variable for commands, so you can use
+	"ls" as the PATH instead of "/bin/ls"
+
+	execlp( "ls", "ls", "-a", "-l", NULL
+
+    execvp
+	execvp( <PATH>, <ARGUMENT ARRAY> );
+
+	ARGUMENT ARRAY
+		 Array of strings, with element 0 must be the
+		 name of the program to be executed and the last
+		 element must be NULL.
+
+	Like execlp, the PATH argument will take the PATH
+	environment variable into account.
+
+
