@@ -1,4 +1,4 @@
-###SOTD: Hunger Strike - Temple of the Dog
+####SOTD: Hunger Strike - Temple of the Dog
 
 #Aim: What's the point of it all?
 
