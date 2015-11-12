@@ -126,12 +126,10 @@
   - BUFFER must be a pointer. C is pass-by-copy, so you can't manage a value that is going to be deleted after the function ends anyways.
 
 - ` write - <unistd.h>`
- - Writes in data to a file
-
+- Writes in data to a file
 
 		write( `<FILE DESCRIPTOR>, <BUFFER>, <AMOUNT IN BYTES>` )
 		read( fd, buff, n)
-
 		//fd is often, if not always, returned by `open(<file_name>);`
 
 **BUFFER is generally the place you want to store the value/stored the value you're using**
