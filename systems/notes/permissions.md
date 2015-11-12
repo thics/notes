@@ -78,6 +78,7 @@
 	 |`O_CREAT` | create a new file, if not existing. |
 	 |`O_EXCL`  | when combined with O_CREAT, will return an error if the file exists |
 
+
 ####SOTD: Fly Me To The Moon - Frank Sinatra
 
 #Aim: Read your writes!
@@ -127,7 +128,7 @@
 - ` write - <unistd.h>`
  - Writes in data to a file
 
-		write( `<FILE DESCRIPTOR>, <BUFFER>, <AMOUNT IN BYTES>` )`
+		write( `<FILE DESCRIPTOR>, <BUFFER>, <AMOUNT IN BYTES>` )
 		read( fd, buff, n)
 
 		//fd is often, if not always, returned by `open(<file_name>);`
