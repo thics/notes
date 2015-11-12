@@ -28,7 +28,8 @@
 * _NOTE: gcc <file name> to compile_  
        _./<.out file> to run_  
 
- * Ex. gcc hello.c  
-       ./a.out
+> Ex.
+ $gcc hello.c
+ $./a.out
 
 
