@@ -128,6 +128,7 @@
 - ` write - <unistd.h>`
  - Writes in data to a file
 
+
 		write( `<FILE DESCRIPTOR>, <BUFFER>, <AMOUNT IN BYTES>` )
 		read( fd, buff, n)
 
