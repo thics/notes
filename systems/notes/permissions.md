@@ -1,40 +1,40 @@
-SOTD: Wheels - Cake
+####SOTD: Wheels - Cake
 
-Aim: File this under useful information.
+#Aim: File this under useful information.
 
-Do Now: What are the different kinds of file permissions?
+###Do Now: What are the different kinds of file permissions?
 
-   seed ==> input for random number generator, default random number
+- seed ==> input for random number generator, default random number
 
-   File Permissions
+###File Permissions
 
-   	3 kinds of permissions:
-	  read, write, execute
+ - 3 kinds of permissions:
+  - read, write, execute
 
-	Permissions can be represented as 3-digit binary #s or 1-digit octal #s
+   - Permissions can be represented as 3-digit binary #s or 1-digit octal #s
 
-		100 <==> 
+        100 <==> 
 
-	chmod <number number number> <file name>
+ - `chmod <number number number> <file name>`
 
-Note: Don't compile .h files
+**Note: Don't compile .h files**
 
-Aim: Opening up a whole new world of possibilites
+#Aim: Opening up a whole new world of possibilites
 
-File Table
+###File Table
 
-     - A list of all files used by a program while it is running.
-     - Contains basic information like the file's location and size
-     - The file table has a limited size, which is a power of 2 and commonly 256,
-       getdtablesize() will return this value
+- A list of all files used by a program while it is running.
+  - Contains basic information like the file's location and size
+  - The file table has a limited size, which is a power of 2 and commonly 256,
+       `getdtablesize()` will return this value
 
-       File Table:
+- File Table:
 
-      file descrip.|name(path) | location | ...
-      ______________________________________
-	0	   |stdin       |	
-	1   	   |stdout      |
-	2 	   |stderr      |
+ - |file descrip.|name(path) | location | ...
+   |:___________:|:___________:|:___________:|____|
+   |0	   |stdin       |	
+	|1   	   |stdout      |
+	|2 	   |stderr      |
 	   
      - Each file is given an integer index, starting at 0, this is referred to as the file descriptor
      - There are 3 files always open in the table:
@@ -42,94 +42,94 @@ File Table
 	    1 or STDOUT_FILENO: stdout
 	    2 or STDERR_FILENO: stderr
 
-     - open - <fcntl.h>
-       	    Add a file to the file table and returns its file descriptor
+###File Actions
+-  `open - <fcntl.h>`
+ - Add a file to the file table and returns its file descriptor
 
-**   If open fails, -1 is returned, extra error information can be found in errno (#include <errno.h>) **
+ - **   If open fails, -1 is returned, extra error information can be found in errno (#include <errno.h>) **
+ - **   If you include <string.h>, can use strerror( errno ) to get error message **
 
-**   If you include <string.h>, can use strerror( errno ) to get error message **
+  - _**errno is an int variable that can be found in <errno.h>, using strerror (in string.h)
+     on errno will return a string description of the error**_
 
-     errno is an int variable that can be found in <errno.h>, using strerror (in string.h)
-     on errno will return a string description of the error
+ - `open( <PATH>, <FLAGS>, <MODE> )`
+  - returns file descriptor ==> often used in conjunction with read/write as the first parameter
 
-	    open( <PATH>, <FLAGS>, <MODE> )
-	    	  ***returns file descriptor ==> often used in conjunction with read/write as the first parameter
+   - mode
+    - Only used when creating a file. Set the new file's permissions using a 3 digit octal #
 
-	    	  mode
-			Only used when creating a file. Set the new file's
-			permissions using a 3 digit octal #
-
-			Octal #s have a leading 0
+	         Octal #s have a leading 0
 			      0644, 0777 ...
 
 			      (1-7) corresponds to binary: so 7 is 111 ==> read yes, write yes, exec yes
 
-		  flags
-			Determine what you plan to do with the file.
+	- flags
+	 - Determine what you plan to do with the file.
 
-			Use the following constants:
-			    O_RDONLY - read only
-			    O_WRONLY - write only
-			    O_RDWR - read + write
-			    O_APPEND - append onto file
-			    O_TRUNC - truncate file
-			    O_CREAT - create a new file, if not existing. 
-			    O_EXCL: when combined with O_CREAT, will return an error
-			    	    if the file exists
+     - Use the following constants:
+	 | Flag | Purpose/Effect |
+	 |:----:|:--------------:|
+	 |`O_RDONLY` | read only |
+	 |`O_WRONLY` | write only|
+	 |`O_RDWR` | read + write|
+	 |`O_APPEND` | append onto file|
+	 |`O_TRUNC` | truncate file |
+	 |`O_CREAT` | create a new file, if not existing. |
+	 |`O_EXCL`  | when combined with O_CREAT, will return an error if the file exists |
 
-SOTD: Fly Me To The Moon - Frank Sinatra
+####SOTD: Fly Me To The Moon - Frank Sinatra
 
-Aim: Read your writes!
+#Aim: Read your writes!
 
-     	       ~a brief interlude~
+######a brief interlude
 
-bitwise operators
+###bitwise operators
 
-	&: bitwise and
-	|: bitwise or
-	~: bitwise not
-	^: bitwise xor
+| Operator | Definition |
+|:--------:|:----------:|
+|	`&` | bitwise and |
+|	`|` | bitwise or  |
+|	`~` | bitwise not |
+|	`^` | bitwise xor |
 
-	logical operators work on each bit of a value
+- logical operators work on each bit of a value
 
-	char c = 13; //00001101
-	char x = ~c; //11110010
+		char c = 13; //00001101
+		char x = ~c; //11110010
 
-   flags
-	Each flag is a number, to combine flags we use bitwise or
+- flags
+ - Each flag is a number, to combine flags we use bitwise or
 
-	O_WRONLY = 1   	       00000001
-	O_APPEND = 8	       00001000
-	O_WRONLY | O_APPEND =  00001001
+		O_WRONLY = 1   	       00000001
+		O_APPEND = 8	       00001000
+		O_WRONLY | O_APPEND =  00001001
 
-   close - <unistd.h>
-   	 Remove a file from the file table.
+- `close - <unistd.h>`
+ - Remove a file from the file table.
 
-	 Returns 0 if successful. Returns -1 and an error if unsuccessful.
+ - Returns 0 if successful. Returns -1 and an error if unsuccessful.
 
-	 close( <FILE DESCRIPTOR> )
+		close( <FILE DESCRIPTOR> )
 
-   read - <unistd.h>
-   	Read in data from a file
+- `read - <unistd.h>`
+ - Read in data from a file
 
-	read( <FILE DESCRIPTOR>, <BUFFER>, <AMOUNT> )
-	read( fd, buff, n )
+		read( <FILE DESCRIPTOR>, <BUFFER>, <AMOUNT> )
+		read( fd, buff, n )
 
-	Read n bytes from the fd's file and put that data into buff
+  - Read n bytes from the fd's file and put that data into buff
 
-	Returns the number of bytes actually read. Return and sets
-	errno if unsuccessful.
+  - returns the number of bytes actually read; return and sets errno if unsuccessful.
 
-	BUFFER must be a pointer. C is pass-by-copy, so you can't manage a value
-	that is going to be deleted after the function ends anyways.
+  - BUFFER must be a pointer. C is pass-by-copy, so you can't manage a value that is going to be deleted after the function ends anyways.
 
-   write - <unistd.h>
-   	 Writes in data to a file
+- ` write - <unistd.h>`
+ - Writes in data to a file
 
-	 write( <FILE DESCRIPTOR>, <BUFFER>, <AMOUNT IN BYTES> )
-	 read( fd, buff, n)
+		write( <FILE DESCRIPTOR>, <BUFFER>, <AMOUNT IN BYTES> )`
+		read( fd, buff, n)
 
-	 fd ==> often, if not always, returned by open(<file_name>);
+ - fd ==> often, if not always, returned by `open(<file_name>);`
 
 **BUFFER is generally the place you want to store the value/stored the value you're using
 
