@@ -129,51 +129,49 @@
 		write( <FILE DESCRIPTOR>, <BUFFER>, <AMOUNT IN BYTES> )`
 		read( fd, buff, n)
 
- - fd ==> often, if not always, returned by `open(<file_name>);`
+		//fd is often, if not always, returned by `open(<file_name>);`
 
-**BUFFER is generally the place you want to store the value/stored the value you're using
+**BUFFER is generally the place you want to store the value/stored the value you're using**
 
-----------------------------
-SOTD: Crazy - Gnarls Barkley
+####SOTD: Crazy - Gnarls Barkley
 
-Aim: Seek and ye shall find
+#Aim: Seek and ye shall find
 
-umask - <sys/stat.h>
+###umask - <sys/stat.h>
 
-      Set the file creation permission mask
+- Set the file creation permission mask
 
-      By default, created files are not given the exact permissions provided
-      in the mode argument to open.
+- By default, created files are not given the exact permissions provided in the mode argument to open.
 
-      A mask is applied that automatically shuts off certain permissions.
+- A mask is applied that automatically shuts off certain permissions.
 
-      Umask is applied by using bitwise negation on the mask,
-      then bitwise anding it to the node
-      	   new_permissions = ~mask & mode
+- Umask is applied by using bitwise negation on the mask, then bitwise anding it to the node
 
-      The default mask is 022, which shuts off write permissions for group and other.
+		new_permissions = ~mask & mode
 
-      umask( <MASK> );
-      	     You can define the umask using a 3 digit octal #
-	     	 umask(0000);
+- The default mask is 022, which shuts off write permissions for group and other.
 
-lseek - <unistd.h>
+		umask( <MASK> );
+	- You can define the umask using a 3 digit octal #
 
-      Set the current position in an open file
+			umask(0000);
 
-      lseek( <FILE DESCRIPTOR>, <OFFSET>, <WHENCE> )
+###lseek - <unistd.h>
 
-      offset
-	Where to measure the offset from
+- Set the current position in an open file
 
-	SEEK_SET
-	   offset is evaluated from the beginning of the file
+		lseek( <FILE DESCRIPTOR>, <OFFSET>, <WHENCE> )
 
-	SEEK_CUR
-	   offset is relative to the current position in the file
+ - _**offset**_
+  - Where to measure the offset from
 
-	SEEK_END
-	   offset is evaluated from the end of the file
+  - **SEEK_SET**
+   - offset is evaluated from the beginning of the file
 
-      returns the number of bytes the current position is from the beginning
-      of the file, or -1 (errno)
+  - **SEEK_CUR**
+   - offset is relative to the current position in the file
+
+  - **SEEK_END**
+   - offset is evaluated from the end of the file
+ 
+ - returns the number of bytes the current position is from the beginning of the file, or -1 (errno)
