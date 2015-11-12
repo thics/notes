@@ -10,7 +10,7 @@
 
 - Get information about a file (metadata)
 
- - stat( <PATH>, <STAT BUFFER> )
+ - stat( PATH, STAT BUFFER )
   - struct stat sb;
   - stat("foo", &sb);
 
