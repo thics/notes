@@ -31,7 +31,7 @@
 - Standard File Table:
 
   |file descrip.|name(path) | location | ... |
-   |:___________:|:___________:|:___________:|____|
+   |:----------:|:---------:|:--------:|:---:|
    |0	   |stdin       |	| |
 	|1   	   |stdout      | | |
 	|2 	   |stderr      | | |
@@ -67,7 +67,7 @@
 	 - Determine what you plan to do with the file.
 
      - Use the following constants:
-	 | Flag | Purpose/Effect |
+	 | Flag | Indication |
 	 |:----:|:--------------:|
 	 |`O_RDONLY` | read only |
 	 |`O_WRONLY` | write only|
