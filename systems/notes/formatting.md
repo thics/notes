@@ -10,12 +10,12 @@
 
    printf("i is %d", i)
 
-|#####Type	   |#####Formatting Character |
+|Type	   |Formatting Character |
 |:--------:|:-----------------------:|
-|  int		        %d |
-|   long			%ld |
-|  float		%f |
-|   double		%lf |
+|  int		 |       %d |
+|   long	|		%ld |
+|  float	|	%f |
+|   double	|	%lf 
    			%0.<x>f will provide x digits after the floating point |
 |   char			%c |
 |   char array		%s |
