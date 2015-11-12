@@ -30,14 +30,14 @@ Write a C program that does the following:
  - `int strcmp( char *s1, char *s2 )`
    - returns 0 if s1 and s2 are identical up to the terminating null.
 
-   - returns a positive number if s1 is greater than s2 (lexicographically)
+    - returns a positive number if s1 is greater than s2 (lexicographically)
 
-   - returns a negative number if s1 is less than s2
+    - returns a negative number if s1 is less than s2
 
  - `char * strcpy( char *dest, char *source)`
    - Copies all the chars up to and including the terminating null from source into dest
 
-    returns dest
+    -  returns dest
 
  - `char * strcat( char *s1, char *s2)`
    - Appends all the characters up to and include the terminating null in s2 to the end of s1
