@@ -67,6 +67,7 @@
 	 - Determine what you plan to do with the file.
 
      - Use the following constants:
+
 	 | Flag | Indication |
 	 |:----:|:--------------:|
 	 |`O_RDONLY` | read only |
