@@ -109,12 +109,12 @@
 
  - Returns 0 if successful. Returns -1 and an error if unsuccessful.
 
-		close( <FILE DESCRIPTOR> )
+		close( `<FILE DESCRIPTOR>` )
 
 - `read - <unistd.h>`
  - Read in data from a file
 
-		read( <FILE DESCRIPTOR>, <BUFFER>, <AMOUNT> )
+		read( `<FILE DESCRIPTOR>, <BUFFER>, <AMOUNT>` )
 		read( fd, buff, n )
 
   - Read n bytes from the fd's file and put that data into buff
@@ -126,7 +126,7 @@
 - ` write - <unistd.h>`
  - Writes in data to a file
 
-		write( <FILE DESCRIPTOR>, <BUFFER>, <AMOUNT IN BYTES> )`
+		write( `<FILE DESCRIPTOR>, <BUFFER>, <AMOUNT IN BYTES>` )`
 		read( fd, buff, n)
 
 		//fd is often, if not always, returned by `open(<file_name>);`
