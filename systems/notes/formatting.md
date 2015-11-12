@@ -16,9 +16,9 @@
 |   long	|		%ld |
 |  float	|	%f |
 |   double	|	%lf ==> **_%0.<x>f_** will provide x digits after the floating point |
-|   char			%c |
-|   char array		%s |
-|   pointer		%p |
+|   char	|		%c |
+|   char array	|	%s |
+|   pointer	|	%p |
 
 
 

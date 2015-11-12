@@ -2,11 +2,11 @@
 
 #Aim: Where do compsci priests live? - In directory!
 
-* ctime( <TIME> )
+* **ctime( <TIME> )**
  * TIME is type time_t*
   * returns the time as a string
 
-* time( <TIME> )
+* **time( <TIME> )**
  * TIME is type time_t*
   * sets the parameter to the current time
 
