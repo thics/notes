@@ -5,7 +5,7 @@
 ###Do Now: What's wrong with this function?
 - (Assume node has been declared correctly)
 
-	node* insert_front( note* n, int i) {
+>	node* insert_front( note* n, int i) {
 	
 	node new;
     
