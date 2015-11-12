@@ -2,11 +2,11 @@
 
 #Aim: Where do compsci priests live? - In directory!
 
-* **ctime( <TIME> )**
+* **ctime( `<TIME>` )**
  * TIME is type time_t*
   * returns the time as a string
 
-* **time( <TIME> )**
+* **time( `<TIME>` )**
  * TIME is type time_t*
   * sets the parameter to the current time
 
@@ -17,33 +17,33 @@
 * Moving files into/out of a directory means changing the directory file,  
   not actually moving any data
 
-####opendir - <dirent.h>
+####opendir - `<dirent.h>`
 
  * Open a directory file
 
  * This will not change the cwd, it only allows your program to read  
    the contents of the directory file
 
-   opendir( <PATH> );
+   opendir( `<PATH>` );
 
   * Returns a pointer to a directory stream (DIR *)
 
-####closedir - <dirent.h>
+####closedir - `<dirent.h>`
 
  * Closes the directory stream and frees the pointer  
    associated with it.
 
   closedir( <DIRECTORY STREAM> )
 
-####readdir - <dirent.h>
+####readdir - `<dirent.h>`
 
-readdir( <DIRECTORY STREAM> )
+readdir( `<DIRECTORY STREAM>` )
 
  * Returns a pointer to the next entry in a directory  
    stream, or NULL if all entries have already been  
    returned.
 
-struct dirent - <sys/types.h>
+struct dirent - `<sys/types.h>`
 
  * Directory struct that contains the information  
    stored in a directory file.
@@ -53,8 +53,8 @@ struct dirent - <sys/types.h>
 	d_name: file's name
 	d_type: file's type
 
-####rewinddir - <dirent.h>
+####rewinddir - `<dirent.h>`
 
  * Resets the directory stream to the beginning of the directory
 
-	rewinddir( <DIRECTORY STREAM> )
+	rewinddir( `<DIRECTORY STREAM>` )
