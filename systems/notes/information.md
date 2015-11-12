@@ -6,7 +6,7 @@
    1. Make a directory
    2. Put a few files in that directory and maybe even a directory or two
 
-###stat - <sys/stat.h>
+###stat - `<sys/stat.h>`
 
 - Get information about a file (metadata)
 
@@ -35,10 +35,10 @@
 
    * These are struct time_t variables. We can use functions in time.h to make sense of them
 
-  * ctime( <struct time_t *> )
+  * ctime( `<struct time_t *>` )
    * returns the time as a string
 
-  * time( <struct time_t *> )
+  * time( `<struct time_t *>` )
    * sets the parameter to the current time
 
 
