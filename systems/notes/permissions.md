@@ -137,7 +137,7 @@
 
 #Aim: Seek and ye shall find
 
-###umask - <sys/stat.h>
+###umask - `<sys/stat.h>`
 
 - Set the file creation permission mask
 
@@ -156,7 +156,7 @@
 
 			umask(0000);
 
-###lseek - <unistd.h>
+###lseek - `<unistd.h>`
 
 - Set the current position in an open file
 
