@@ -29,6 +29,7 @@
        _./<.out file> to run_  
 
 > Ex.
+
     $gcc hello.c
     $./a.out
 
