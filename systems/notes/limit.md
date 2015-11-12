@@ -10,4 +10,8 @@
 
 - returns the beginning of the original string sets the source string to the string starting at 1 index past the location of the new NULL
 
+- Since the source variable's value is changed, it must be a pointer to a string.
+
+ - `char line[100] = "wow-this-is-cool";`
+ - `
 
