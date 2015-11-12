@@ -28,13 +28,13 @@
   - The file table has a limited size, which is a power of 2 and commonly 256,
        `getdtablesize()` will return this value
 
-- File Table:
+- Standard File Table:
 
- - |file descrip.|name(path) | location | ...
+  |file descrip.|name(path) | location | ... |
    |:___________:|:___________:|:___________:|____|
-   |0	   |stdin       |	
-	|1   	   |stdout      |
-	|2 	   |stderr      |
+   |0	   |stdin       |	| |
+	|1   	   |stdout      | | |
+	|2 	   |stderr      | | |
 	   
      - Each file is given an integer index, starting at 0, this is referred to as the file descriptor
      - There are 3 files always open in the table:
