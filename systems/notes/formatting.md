@@ -15,8 +15,8 @@
 |  int		 |       %d |
 |   long	|		%ld |
 |  float	|	%f |
-|   double	|	%lf 
-   			%0.<x>f will provide x digits after the floating point |
+|   double	|	%lf |
+|   		|	%0.<x>f will provide x digits after the floating point |
 |   char			%c |
 |   char array		%s |
 |   pointer		%p |
