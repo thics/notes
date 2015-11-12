@@ -33,7 +33,7 @@
  * Closes the directory stream and frees the pointer  
    associated with it.
 
-  closedir( <DIRECTORY STREAM> )
+  closedir( `<DIRECTORY STREAM>` )
 
 ####readdir - `<dirent.h>`
 
