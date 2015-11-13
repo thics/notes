@@ -17,11 +17,11 @@
 
 - & is used to get the address of a variable
 
-- * is used to declare a variable as a pointer type
+- `*` is used to declare a variable as a pointer type
 
 		`ex. int *p, double *d, char *r, ...`
 
-- * is also used as the de-reference operator
+- `*` is also used as the de-reference operator
  - It accesses the value referenced by the pointer
 
 - All pointer variable types are same size

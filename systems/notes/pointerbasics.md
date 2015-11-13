@@ -10,6 +10,6 @@
 
  - & is used to get the address of a variable
 
- - * is used to declare a variable as a pointer type
+ - `*` is used to declare a variable as a pointer type
 
 		`ex. int *p, double *q, char *r ...`
