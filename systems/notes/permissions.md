@@ -35,7 +35,8 @@
 	|2 	   |stderr      | | |
 	   
      - Each file is given an integer index, starting at 0, this is referred to as the file descriptor
-     - There are 3 files always open in the table:  
+     - There are 3 files always open in the table:
+	 
 	    0 or **STDIN_FILENO**: stdin  
 	    1 or **STDOUT_FILENO**: stdout  
 	    2 or **STDERR_FILENO**: stderr  
@@ -108,12 +109,11 @@
  - Remove a file from the file table.
 
  - Returns 0 if successful. Returns -1 and an error if unsuccessful.
- >
- 
+
 		close( `<FILE DESCRIPTOR>` )
 
 - `read - <unistd.h>`
- > Read in data from a file
+ - Read in data from a file
 
 		read( `<FILE DESCRIPTOR>, <BUFFER>, <AMOUNT>` )
 		read( fd, buff, n )
