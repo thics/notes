@@ -10,11 +10,11 @@
  - A procesor can handle 1 process per cycle (per core). "Multitasking" appears to happen because the processor switches between all the activate processes quickly.
 
   - _**pid**_
-   - Every process has a unique identifier called the pid.
+    - Every process has a unique identifier called the pid.
 
-	- pid 1 is the init process
+	 - pid 1 is the init process
 
-	- Each entry in the `/proc directory` is a current pid
+	 - Each entry in the `/proc directory` is a current pid
 
   - `getpid() - <unistd.h>`
     - returns the current process' pid
