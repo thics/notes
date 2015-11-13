@@ -32,7 +32,7 @@
 |	byte|	  8 bit integer|
 
 "Last Class Today"
- Format: `LCT <MM/DD WEEKDAY> `
+ Format: `LCT <MM/DD WEEKDAY> `  
  For example: `LCT 9/10 Thursday>`
 
    - Post to just own class, questions to entire Systems section
