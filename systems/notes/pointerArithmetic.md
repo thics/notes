@@ -19,7 +19,7 @@
 
 - `*` is used to declare a variable as a pointer type
 
-		`ex. int *p, double *d, char *r, ...`
+		ex. int *p, double *d, char *r, ...
 
 - `*` is also used as the de-reference operator
  - It accesses the value referenced by the pointer
