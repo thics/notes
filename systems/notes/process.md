@@ -38,16 +38,17 @@
 
   - `sleep( <Number of seconds> ) - <unistd.h>`
 
-   - C will wait for number of seconds
+    - C will wait for number of seconds
 
   - `wait - <unistd.h>`
-   - Stops a parent process from running until any child has provided status information to the parent (usually the child has exited).
+    - Stops a parent process from running until any child has provided status information to the parent (usually the child has exited).
 
-   - returns the pid of the child that exited, or -1 (errno)
+    - returns the pid of the child that exited, or -1 (errno)
 
 #Aim: Time to bring out the exectioner.
 
 `exit` - stops the main code during runtime
+
 
 #####SOTD: Burden in my Hand - Soundgarden
 
@@ -58,12 +59,12 @@
  - Waits for a specific child
 
   - `waitpid(pid, status, options)`
-   - pid
-    - The pid of the specific child to look for
-    - If -1, will wait for any child
+    - pid
+      - The pid of the specific child to look for
+      - If -1, will wait for any child
 
-   - options
-    - Can set other behavior for wait, if 0, will work normally.
+    - options
+      - Can set other behavior for wait, if 0, will work normally.
 
 ###The exec family - `<unistd.h>`
 
@@ -88,7 +89,7 @@
 #####execlp
 	`execlp( <PATH>, <COMMAND>, <ARGS>, NULL )`
 
->Works like execl, except it uses the PATH environment variable for commands, so you can use `"ls"` as the PATH instead of `"/bin/ls"`
+ - Works like execl, except it uses the PATH environment variable for commands, so you can use `"ls"` as the PATH instead of `"/bin/ls"`
 
 	`execlp( "ls", "ls", "-a", "-l", NULL`
 
