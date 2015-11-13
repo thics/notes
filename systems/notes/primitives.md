@@ -32,8 +32,8 @@
 |	byte|	  8 bit integer|
 
 "Last Class Today"
-      Format: LCT <MM/DD WEEKDAY> 
-      For example: LCT 9/10 Thursday> 
+ Format: `LCT <MM/DD WEEKDAY> `
+ For example: `LCT 9/10 Thursday>`
 
    - Post to just own class, questions to entire Systems section
    - Conclude with Daily Digital news, link / post of interesting tech news
