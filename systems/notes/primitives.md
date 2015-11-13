@@ -31,9 +31,9 @@
 |	double|	  64 bit floating point number|
 |	byte|	  8 bit integer|
 
-"Last Class Today"
- Format: `LCT <MM/DD WEEKDAY> `  
- For example: `LCT 9/10 Thursday>`
+**"Last Class Today"**  
+ _Format:_ `LCT <MM/DD WEEKDAY> `  
+ _For example:_ `LCT 9/10 Thursday>`
 
    - Post to just own class, questions to entire Systems section
    - Conclude with Daily Digital news, link / post of interesting tech news
