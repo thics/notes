@@ -17,13 +17,13 @@
 	- Each entry in the `/proc directory` is a current pid
 
   - `getpid() - <unistd.h>`
-   - returns the current process' pid
+    - returns the current process' pid
 
   - `getppid() - <unistd.h>`
-   - returns the current process' parent pid
+    - returns the current process' parent pid
 
   - `fork() - <unistd.h>`
-	- Creates a separate process based on the current one, the new process is called the child, the original is the parent.
+	 - Creates a separate process based on the current one, the new process is called the child, the original is the parent.
 
 	The child process is a duplicate of the parent process.  
 	All parts of the parent process are copied, including stack and heap memory, and the file table.
