@@ -110,7 +110,7 @@
 
  - Returns 0 if successful. Returns -1 and an error if unsuccessful.
 
-		close( `<FILE DESCRIPTOR>` )
+                   close( `<FILE DESCRIPTOR>` )
 
 - `read - <unistd.h>`
  - Read in data from a file
