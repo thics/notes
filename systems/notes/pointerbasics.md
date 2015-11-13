@@ -8,7 +8,7 @@
 
 - Variables designed to store memory addresses (think references in java)
 
- - & is used to get the address of a variable
+ - `&` is used to get the address of a variable
 
  - `*` is used to declare a variable as a pointer type
 

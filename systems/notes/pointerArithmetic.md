@@ -12,10 +12,10 @@
    
    What happened?
 
-- Declare pointers with *, use without *
-- Get variable pointer value with &
+- Declare pointers with `*`, use without `*`
+- Get variable pointer value with `&`
 
-- & is used to get the address of a variable
+- `&` is used to get the address of a variable
 
 - `*` is used to declare a variable as a pointer type
 
