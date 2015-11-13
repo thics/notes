@@ -13,8 +13,6 @@
 
    - Permissions can be represented as 3-digit binary #s or 1-digit octal #s
 
-        100 <==> 
-
  - `chmod <number number number> <file name>`
 
 **Note: Don't compile .h files**
@@ -37,17 +35,17 @@
 	|2 	   |stderr      | | |
 	   
      - Each file is given an integer index, starting at 0, this is referred to as the file descriptor
-     - There are 3 files always open in the table:
-       	    0 or STDIN_FILENO: stdin
-	    1 or STDOUT_FILENO: stdout
-	    2 or STDERR_FILENO: stderr
+     - There are 3 files always open in the table:  
+	    0 or **STDIN_FILENO**: stdin  
+	    1 or **STDOUT_FILENO**: stdout  
+	    2 or **STDERR_FILENO**: stderr  
 
 ###File Actions
 -  `open - <fcntl.h>`
  - Add a file to the file table and returns its file descriptor
 
- - **   If open fails, -1 is returned, extra error information can be found in errno (#include <errno.h>) **
- - **   If you include <string.h>, can use strerror( errno ) to get error message **
+ - _If open fails, -1 is returned, extra error information can be found in errno (#include <errno.h>)_
+ - _If you include <string.h>, can use strerror( errno ) to get error message_
 
   - _**errno is an int variable that can be found in <errno.h>, using strerror (in string.h)
      on errno will return a string description of the error**_
@@ -100,7 +98,7 @@
 		char x = ~c; //11110010
 
 - flags
- - Each flag is a number, to combine flags we use bitwise or
+ > Each flag is a number, to combine flags we use bitwise or
 
 		O_WRONLY = 1   	       00000001
 		O_APPEND = 8	       00001000
@@ -110,11 +108,12 @@
  - Remove a file from the file table.
 
  - Returns 0 if successful. Returns -1 and an error if unsuccessful.
-
+ >
+ 
 		close( `<FILE DESCRIPTOR>` )
 
 - `read - <unistd.h>`
- - Read in data from a file
+ > Read in data from a file
 
 		read( `<FILE DESCRIPTOR>, <BUFFER>, <AMOUNT>` )
 		read( fd, buff, n )
@@ -126,7 +125,7 @@
   - BUFFER must be a pointer. C is pass-by-copy, so you can't manage a value that is going to be deleted after the function ends anyways.
 
 - ` write - <unistd.h>`
-- Writes in data to a file
+-  Writes in data to a file
 
 		write( <FILE DESCRIPTOR>, <BUFFER>, <AMOUNT IN BYTES> )
 		read( fd, buff, n)
