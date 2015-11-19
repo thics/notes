@@ -1,4 +1,4 @@
-####SOTD: Shine - Collective Soul
+#####SOTD: Shine - Collective Soul
 
 #Aim: Are your processes running? - Then you should go out and catch them!
 
@@ -49,9 +49,8 @@
 
 `exit` - stops the main code during runtime
 
-
-#####SOTD: Burden in my Hand - Soundgarden
-
+------------------------------
+#####SOTD: Burden in my Hand - Soundgarden  
 #Aim: Invasion of the process snatchers.
 
 - `waitpid - <unistd.h>`
@@ -102,4 +101,23 @@
  - _PATH_
   -	Like execlp, the PATH argument will take the PATH Environment into account.
 
+### AIM: Let's take this to delimit!
 
+###**strsep** - `<string.h>`
+- used for parsing a string with a common delimeter
+
+```c
+strsep( <SOURCE>, <DELIMETER> )
+```
+
+- locates first occurrence of delimeter in string, replaces with NULL
+ - returns beginning of original string
+- sets source string to string starting at 1 index past location of new NULL since source variable's value is changed, must be pointer to a string
+
+```c
+char line[100] = "wow-this-is-so-cool";
+*s1 = line;
+```
+
+
+)
